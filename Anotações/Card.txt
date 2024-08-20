@@ -1,0 +1,27 @@
+<!-- ? -->
+            <div class="card">
+                <img src="Icon/image().png" alt="Image Placeholder">
+                <section>
+                    <div class="text">
+                        <div class="title">Name</div>
+                        <div class="description">Description</div>
+                        <div class="version">1.20.4, 1.20.6, 1.21</div>
+                        <div class="version-downloads">
+
+                            <a href="" target="_blank"><button class="download-buttons">1.20.4</button></a> 
+
+                            <a href="" target="_blank"><button class="download-buttons">1.20.6</button></a>
+
+                            <a href="" target="_blank"><button class="download-buttons">1.21</button></a>
+
+                        </div>
+                    </div>
+                    <div class="buttons-sec">
+                        <button class="button-full"><a href=""
+                                target="_blank"><img src="Icon/Modrinth_logo.svg" alt=""></a></button>
+                        <button class="button-full"><a
+                                href=""
+                                target="_blank"><img src="Icon/CurseForgeLogo.svg" alt=""></a></button>
+                    </div>
+                </section>
+            </div>

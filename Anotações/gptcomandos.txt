@@ -1,0 +1,391 @@
+Leia abaixo o HTML, CSS e JavaScript.
+
+HTML:
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Kingdom Of Ryda</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="acordeon.css">
+    <link rel="stylesheet" href="searchbar.css">
+    <link rel="shortcut icon" href="Icon/Favicon/MalcLogo(Official).png" type="image/x-icon">
+</head>
+
+<body>
+    <header>
+        <h1>KINGDOM OF RYDA</h1>
+        <main>
+            <h2 class="main-link">Mods</h2>
+            <h2>•</h2>
+            <a href="texture.html">
+                <h2 class="sec-link">Resource Packs</h2>
+            </a>
+        </main>
+    </header>
+    <div class="container">
+
+        <button class="accordion">Versões</button>
+        <div class="accordion-content">
+            <button onclick="filterByVersion('1.21')">1.21</button>
+            <button onclick="filterByVersion('1.20.6')">1.20.6</button>
+            <button onclick="filterByVersion('1.20.4')">1.20.4</button>
+            <button onclick="resetCards()">Resetar</button>
+        </div>
+
+        <section>
+            <input type="text" id="search-bar" placeholder="Pesquisar Mods...">
+
+
+            <a href="mods.html"><button class="links">Drive</button>
+            </a>
+        </section>
+
+        <div class="grid">
+
+            <!-- 2032 World Height -->
+            <div class="card">
+                <img src="Icon/image1.png" alt="Image Placeholder">
+                <section>
+                    <div class="text">
+                        <div class="title">2032 World Height</div>
+                        <div class="description">Increase the build limit to Y=2031 in all dimensions.</div>
+                        <div class="version">1.20.4, 1.20.6, 1.21</div>
+                        <a href=""><img src="Icon/DriveIcon/Download.png" alt="" class="download-img"></a>
+                    </div>
+                    <div class="buttons-sec">
+                        <button class="button-full"><a href="https://modrinth.com/datapack/2032-world-height"
+                                target=”_blank”><img src="Icon/Modrinth_logo.svg" alt=""></a></button>
+                        <button class="button-full"><a
+                                href="https://www.curseforge.com/minecraft/mc-mods/bigger-world-height"
+                                target=”_blank”><img src="Icon/CurseForgeLogo.svg" alt=""></a></button>
+                    </div>
+                </section>
+            </div>
+
+            <!-- AmbientSounds -->
+            <div class="card">
+                <img src="Icon/image2.png" alt="Image Placeholder">
+                <section>
+                    <div class="text">
+                        <div class="title">AmbientSounds</div>
+                        <div class="description">Adds a rich ambience to the minecraft world.</div>
+                        <div class="version">1.20.4, 1.20.6, 1.21</div>
+                    </div>
+                    <div class="buttons-sec">
+                        <button class="button-full"><a href="https://modrinth.com/mod/ambientsounds"
+                                target=”_blank”><img src="Icon/Modrinth_logo.svg" alt=""></a></button>
+                        <button class="button-full"><a href="https://www.curseforge.com/minecraft/mc-mods/ambientsounds"
+                                target=”_blank”><img src="Icon/CurseForgeLogo.svg" alt=""></a></button>
+                    </div>
+                </section>
+            </div>
+
+            <!-- O resto dos cartões que existem (Para não ficar muita coisa) -->
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>
+
+CSS (Principal):
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #0F0F0F;
+    color: #fff;
+}
+
+header {
+    background-color: #0B0B0B;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 0;
+    user-select: none
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+header h2 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #cccccc;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+main a {
+    text-decoration: none;
+}
+
+.sec-link {
+    color: #ffffff42;
+}
+
+.sec-link:hover {
+    color: #fff;
+}
+
+.container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.card {
+    background-color: #1B1B1B;
+    border-radius: 10px;
+    width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.version-match {
+    background-color: rgba(0, 128, 0, 0.39);
+}
+
+.version-mismatch {
+    background-color: rgba(255, 0, 0, 0.466);
+}
+
+.button-active {
+    background-color: blue;
+    color: white;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.63);
+}
+
+.card img {
+    border-radius: 15px;
+    margin: 10px;
+}
+
+.card .text {
+    background-color: #3B3B3B;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    margin: 10px;
+}
+
+.card .title {
+    font-size: 1.5em;
+    margin: 10px 0;
+    font-weight: bold;
+    text-align: center;
+}
+
+.card .description {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #7777775d;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.version {
+    margin: 10px;
+    font-size: 10px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.card .buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.card button {
+    background-color: #777;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    flex: 1;
+    margin: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.card button:hover {
+    background-color: #999;
+}
+
+.card .button-full {
+    margin: 10px;
+    padding: -15px;
+    background-color: #3B3B3B;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.card .button-full img {
+    width: 50px;
+}
+
+.button-full:hover {
+    background-color: #999;
+}
+
+.buttons-sec {
+    display: flex;
+}
+
+.download-img {
+    width: 25%;
+}
+
+.test {
+    display: flex;
+    flex-direction: row;
+}
+
+/* Estilos para a barra de rolagem personalizada */
+::-webkit-scrollbar {
+    width: 12px;
+    /* Largura da barra de rolagem vertical */
+    height: 12px;
+    /* Altura da barra de rolagem horizontal */
+}
+
+::-webkit-scrollbar-track {
+    background: #1B1B1B;
+    /* Cor do fundo da barra de rolagem */
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #444;
+    /* Cor da barra de rolagem */
+    border-radius: 10px;
+    border: 3px solid #1B1B1B;
+    /* Espaço entre a barra de rolagem e o track */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+    /* Cor da barra de rolagem ao passar o mouse */
+}
+
+JavaScript:
+
+document.addEventListener("DOMContentLoaded", function () {
+    const accordion = document.querySelector(".accordion");
+    const accordionContent = document.querySelector(".accordion-content");
+
+    accordion.addEventListener("click", function () {
+        // Alterna a exibição do conteúdo
+        if (accordionContent.style.display === "block") {
+            accordionContent.style.display = "none";
+        } else {
+            accordionContent.style.display = "block";
+        }
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    sortCardsAlphabetically();
+});
+
+function sortCardsAlphabetically() {
+    const grid = document.querySelector('.grid');
+    const cards = Array.from(grid.querySelectorAll('.card'));
+
+    // Sort cards alphabetically by the title
+    cards.sort((a, b) => {
+        const titleA = a.querySelector('.title').textContent.toLowerCase();
+        const titleB = b.querySelector('.title').textContent.toLowerCase();
+        return titleA.localeCompare(titleB);
+    });
+
+    // Clear the grid and append the sorted cards
+    cards.forEach(card => {
+        grid.appendChild(card);
+    });
+}
+
+function filterByVersion(version) {
+    const cards = document.querySelectorAll('.card');
+
+    cards.forEach(card => {
+        const versionText = card.querySelector('.version').textContent;
+        if (versionText.includes(version)) {
+            card.classList.add('version-match');
+            card.classList.remove('version-mismatch');
+        } else {
+            card.classList.add('version-mismatch');
+            card.classList.remove('version-match');
+        }
+    });
+}
+
+function resetCards() {
+    const cards = document.querySelectorAll('.card');
+
+    cards.forEach(card => {
+        card.classList.remove('version-match', 'version-mismatch');
+    });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    const searchBar = document.getElementById("search-bar");
+
+    searchBar.addEventListener("input", function () {
+        const searchTerm = searchBar.value.toLowerCase();
+        filterCardsBySearchTerm(searchTerm);
+    });
+});
+
+function filterCardsBySearchTerm(searchTerm) {
+    const cards = document.querySelectorAll('.card');
+
+    cards.forEach(card => {
+        const titleText = card.querySelector('.title').textContent.toLowerCase();
+        if (titleText.includes(searchTerm)) {
+            card.style.display = 'flex';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+
+Agora, sem mudar absolutamente nada:
+ - Eu quero que você adicione um botão estilizado no canto inferior direito dos cartões, de preferencia na area onde a descrição está, seguindo ao maximo os estilos de botões que você encontrar no material que te passei. Este botão deverá ter a imagem seguinte: (link da imagem: Icon/DriveIcon/Download.png). Deverá ser clicavel, e com um hover bonito e intuitivo.
+ - Para cada botão adicione um evento de opções. Com as seguintes opções aparecendo abaixo de uma pergunta: "Qual dessas versões você deseja baixar?". E antes de irmos as 3 opções que você dará, precisamos verificar a <div class="version"></div> em busca das versões disponiveis (que podem aparecer com uma combinação das três seguintes versões: 1.20.4, 1.20.6 e 1.21 (<div class="version">1.20.4, 1.20.6, 1.21</div>)), e sim, isso deve ser verificado para cada cartão individualmente, de forma com que, por exemplo, se a div de class version do cartão X tiver indicando apenas as versões 1.20.4 e 1.21, apenas os botões com essas duas opções devem aparecer. Lembrando de deixar os botões também estilizados. 
